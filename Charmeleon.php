@@ -1,6 +1,5 @@
 <?php 
 
-// heeft een naam, energytype, hitpoints
 class Charmeleon extends Pokemon{
 	public $pokeName = 'Charmeleon';
 	public $pokeHP = '60';
@@ -8,7 +7,7 @@ class Charmeleon extends Pokemon{
 	public function __construct($pokeNickname, $pokeCurrentHP)
 	{
     $this->pokeMove1 = new Moveset('Headbutt', 10);
-    $this->pokeMove2 = new Moveset('Flare', 30);
+    $this->pokeMove2 = new Moveset('Flamethrower', 30);
     $this->pokeWeakness = new Weakness('waterType', 2);
     $this->pokeResistance = new Resistance('electricType', 10);
     $this->electricType = new Energytype('electricType');
@@ -26,7 +25,9 @@ class Charmeleon extends Pokemon{
     if ($pokeDamage < 0) {
       $pokeDamage = 0;
     }
-    $pokeHP = $pokeTarget->currentHealth - $pokeDamage;
+    
+    $pokeHP = $pokeTarget->pokeHP - $pokeDamage;
+
     return "<p>" . $pokeTarget->pokeNickname . " has taken " . $pokeDamage . " damage from " . $this->$pokeAttack->pokeAttack . ". It was super effective. </p>" . "<p>" . $this->pokeNickname . "'s health is now: " . $pokeHP . ".</p>";
   }
 }

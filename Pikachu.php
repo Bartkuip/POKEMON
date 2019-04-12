@@ -1,6 +1,5 @@
 <?php 
 
-// heeft een naam, energytype, hitpoints
 class Pikachu extends Pokemon{
 	public $pokeName = 'Pikachu';
 	public $pokeHP = '60';
@@ -26,7 +25,7 @@ class Pikachu extends Pokemon{
     if ($pokeDamage < 0) {
       $pokeDamage = 0;
     }
-    $pokeHP = $pokeTarget->currentPokeHP - $pokeDamage;
+    $pokeHP = $pokeTarget->pokeHP - $pokeDamage;
     return "<p>" . $pokeTarget->pokeNickname . " has taken " . $pokeDamage . " damage from " . $this->$pokeAttack->pokeAttack . ". It was super effective. </p>" . "<p>" . $this->pokeNickname . "'s health is now: " . $pokeHP . ".</p>";
   }
 }

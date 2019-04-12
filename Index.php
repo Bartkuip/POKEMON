@@ -25,11 +25,11 @@ echo $Pikachu->Attack($Charmeleon, 'pokeMove2');
 <body>
     <main>
       <section id="charmeleon">
-        <div id="bar1">Nickname: <?= $Charmeleon->pokeNickname ?><br>Pokemon: <?= $Charmeleon->pokeName ?><br>Health: <?= $Charmeleon->currentPokeHP ?></div>
+        <div id="bar1">Nickname: <?= $Charmeleon->pokeNickname ?><br>Pokemon: <?= $Charmeleon->pokeName ?></div>
         <img src="Charmeleon.jpg" alt="Charmeleon" height="200px" width="200px">
       </section>
       <section id="pikachu">
-        <div id="bar2">Nickname: <?= $Pikachu->pokeNickname ?><br>Pokemon: <?= $Pikachu->pokeName ?><br>Health: <?= $Pikachu->currentPokeHP ?></div> <img src="Pikachu.png" alt="Pikachu" width="200px" height="200px">
+        <div id="bar2">Nickname: <?= $Pikachu->pokeNickname ?><br>Pokemon: <?= $Pikachu->pokeName ?></div> <img src="Pikachu.png" alt="Pikachu" width="200px" height="200px">
       </section>
     </main>
 </body>
