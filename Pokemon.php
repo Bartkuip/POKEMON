@@ -2,24 +2,24 @@
 
 class Pokemon {
 
-	public $pokeNickname;
-	public $pokeName;
-	public $pokeType;
+	public $nickname;
+	private $name;
+	private $type;
 	public $pokeHP;
 	public $currentPokeHP;
-	public $pokeWeakness;
-	public $pokeResistance;
-	public $pokeMoves;
-
-	public function __construct($pokeNickname, $pokeName, $pokeType, $pokeHP, $pokeCurrentHP, $pokeWeakness, $pokeResistance, $pokeMoves) {
-		$this->pokeNickname = $pokeNickname;
-		$this->pokeName = $pokeName;
-		$this->pokeType = $pokeType;
+	private $weakness;
+	private $resistance;
+	private $moves;
+	// dit maakt de pokemon aan met nickname, naam, het type, hp, hp dat de pokemon nu heeft, zwakte, resistentie, aanvallen
+	protected function __construct($nickname, $name, $type, $pokeHP, $currentPokeHP, $weakness, $resistance, $moves) {
+		$this->nickname = $nickname;
+		$this->name = $name;
+		$this->type = $type;
 		$this->pokeHP = $pokeHP;
 		$this->currentPokeHP = $currentPokeHP;
-		$this->pokeWeakness = $pokeWeakness;
-		$this->pokeResistance = $pokeResistance;
-		$this->pokeMoves = $pokeMoves;
+		$this->weakness = $weakness;
+		$this->resistance = $resistance;
+		$this->moves = $moves;
 
 	}
 }

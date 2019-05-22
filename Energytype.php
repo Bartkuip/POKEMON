@@ -2,10 +2,9 @@
 
 class Energytype
 {
-    public $pokeType;
-
-    public function __construct($pokeType)
+    public $type;
+    public function __construct($type)
     {
-        $this->pokeType = $pokeType;
+        $this->type = $type;
     }
 }

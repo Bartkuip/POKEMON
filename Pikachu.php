@@ -1,31 +1,32 @@
 <?php 
 
 class Pikachu extends Pokemon{
-	public $pokeName = 'Pikachu';
+	public $name = 'Pikachu';
 	public $pokeHP = '60';
 
-	public function __construct($pokeNickname, $pokeCurrentHP)
+	public function __construct($nickname, $currentPokeHP)
 	{
-    $this->pokeMove1 = new Moveset('Thundershock', 20);
-    $this->pokeMove2 = new Moveset('Thunderbolt', 50); 
-    $this->pokeWeakness = new Weakness('fireType', 1.5);
-    $this->pokeResistance = new Resistance('fightingType', 20); 
-    $this->electricType = new Energytype('electricType');
-    parent::__construct($pokeNickname, $this->pokeName, $this->electricType, $this->pokeHP, $currentPokeHP, new Weakness('fireType', 1.5), $this->pokeResistance, $this->pokeMove1 , $this->pokeMove2);
+    // pikachu abilities dat zijn thundershock en thunderbolt, zijn weakness is  fire en die multiplied met 1.5x, hij resist 20 fighting damage en hij is electric type.
+    $this->move1 = new Moveset('Thundershock', 20);
+    $this->move2 = new Moveset('Thunderbolt', 50); 
+    $this->weakness = new Weakness('fireType', 1.5);
+    $this->resistance = new Resistance('fightingType', 20); 
+    $this->energy = new Energytype('electricType');
+    parent::__construct($nickname, $this->name, $this->electricType, $this->pokeHP, $currentPokeHP, new Weakness('fireType', 1.5), $this->resistance, $this->move2);
 }
-  public function Attack($pokeTarget, $pokeAttack)
+  // berekend de attack met weakness en resistance
+  public function Attack($target, $attack)
   {
-    $pokeDamage = $this->$pokeAttack->pokeDamage;
-    if ($this->electricType->type === $pokeTarget->pokeWeakness->pokeNickname) {
-      $pokeDamage = $pokeDamage * $pokeTarget->pokeWeakness->pokeMultiplier;
+    $damage = $this->$attack->damage;
+    if ($this->energy->type === $target->pokeWeakness->nickname) {
+      $damage = $damage * $target->pokeWeakness->multiplier;
     }
-    if ($this->electricType->type === $pokeTarget->pokeResistance->pokeNickname) {
-      $pokeDamage = $pokeDamage - $pokeTarget->pokeResistance->pokeResistance;
+    if ($this->energy->type === $target->resistance->nickname) {
+      $damage = $damage - $target->resistance->resistance;
     }
-    if ($pokeDamage < 0) {
-      $pokeDamage = 0;
-    }
-    $pokeHP = $pokeTarget->pokeHP - $pokeDamage;
-    return "<p>" . $pokeTarget->pokeNickname . " has taken " . $pokeDamage . " damage from " . $this->$pokeAttack->pokeAttack . ". It was super effective. </p>" . "<p>" . $this->pokeNickname . "'s health is now: " . $pokeHP . ".</p>";
+
+    // slaat hp op
+    $pokeHP = $target->pokeHP - $damage;
+    return "<p>" . $target->nickname . " has taken " . $damage . " damage from " . $this->$attack->attack . ". It was super effective. </p>" . "<p>" . $this->nickname . "'s health is now: " . $pokeHP . ".</p>";
   }
 }

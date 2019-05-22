@@ -2,12 +2,14 @@
 
 class Moveset
 {
-    public $pokeAttack;
-    public $pokeDamage;
+	// de move die word gebruikt door de pokemon (move 1 en 2)
+    public $attack;
+    // de damagge van de move die de user gebruikt op de target ook move 1 en 2
+    public $damage;
 
-    public function __construct($pokeAttack, $pokeDamage)
+    public function __construct($attack, $damage)
     {
-        $this->pokeAttack = $pokeAttack;
-        $this->pokeDamage = $pokeDamage;
+        $this->attack = $attack;
+        $this->damage = $damage;
     }
 }
